@@ -2,7 +2,7 @@
 	"learn_id_work": {
 		"241": 
 		{
-			"id": 1,
+			"id": 241,
 			"first_name": "Jeanette",
 			"last_name": "Penddreth",
 			"email": "jpenddreth0@census.gov",
@@ -11,7 +11,7 @@
 		},
 		"246": 
 		{
-			"id": 2,
+			"id": 246,
 			"first_name": "Giavani",
 			"last_name": "Frediani",
 			"email": "gfrediani1@senate.gov",
@@ -20,7 +20,7 @@
 		},
 		"1_687241": 
 		{
-			"id": 3,
+			"id": "1_687241",
 			"first_name": "Noell",
 			"last_name": "Bea",
 			"email": "nbea2@imageshack.us",
@@ -29,7 +29,7 @@
 		},
 		"24109_1": 
 		{
-			"id": 4,
+			"id": "24109_1",
 			"first_name": "Willard",
 			"last_name": "Valek",
 			"email": "wvalek3@vk.com",
