@@ -1,5 +1,7 @@
 package com.learningboot.model;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,6 +13,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
 
 //import nonapi.io.github.classgraph.json.Id;
 
@@ -33,6 +36,7 @@ import lombok.ToString;
 
 @Entity
 @Table(name = "tutorials")
+@Slf4j
 public class Tutorial {
 
 	@Id
@@ -108,6 +112,16 @@ public class Tutorial {
 	public String toString() {
 		return "Tutorial [id=" + id + ", title=" + title + ", description=" + description + ", level=" + level
 				+ ", published=" + published + "]";
+	}
+	
+	@PostConstruct
+	public void init() {
+		System.out.println("Inside the TutorialsEntity @PostConstrcut {}" + 3);
+	}
+	
+	@PreDestroy
+	public void cleanUp() {
+		System.out.println("Inside the TutorialsEntity @PreDestroy {}" + 3);
 	}
 	
 }

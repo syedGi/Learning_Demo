@@ -15,7 +15,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.learningboot.model.Tutorial;
 import com.learningboot.repository.TutorialRepository;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+import lombok.extern.slf4j.Slf4j;
+
 @Controller
+@Slf4j
 public class TutorialController {
 
 	@Autowired
@@ -63,19 +68,16 @@ public class TutorialController {
 	 * return "redirect:/tutorials"; }
 	 */
 
-	@GetMapping("/tutorials")
-	public String getAll(Model model) {
-		try {
-			List<Tutorial> tutorials = new ArrayList<Tutorial>();
-			tutorialRepository.findAll().forEach(tutorials::add);
-
-			model.addAttribute("tutorials", tutorials);
-		} catch (Exception e) {
-			model.addAttribute("message", e.getMessage());
-		}
-
-		return "tutorials";
-	}
+	/*
+	 * @GetMapping("/tutorials") public String getAll(Model model) { try {
+	 * List<Tutorial> tutorials = new ArrayList<Tutorial>();
+	 * tutorialRepository.findAll().forEach(tutorials::add);
+	 * 
+	 * model.addAttribute("tutorials", tutorials); } catch (Exception e) {
+	 * model.addAttribute("message", e.getMessage()); }
+	 * 
+	 * return "tutorials"; }
+	 */
 	
 	@GetMapping("/tutorials/new")
 	  public String addTutorial(Model model) {
@@ -178,4 +180,16 @@ public class TutorialController {
 
 	    return "tutorials";
 	  }
+	  
+	  @PostConstruct
+		public void init() {
+//			System.out.println("Inside the TutorialsControllr @PostConstrcut {}" + 3);
+		  log.info("Inside the TutorialsControllr @PostConstrcut {}", 3);
+		}
+	  
+	  @PreDestroy
+		public void cleanUp() {
+//			System.out.println("Inside the TutorialsController @PreDestroy {}" + 3);
+		  log.info("Inside the TutorialsController @PreDestroy {}" + 3);
+		}
 }
